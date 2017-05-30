@@ -5,6 +5,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import com.example.app.domain.Customer;
 import com.example.app.repository.CustomerRepository;
@@ -26,8 +29,18 @@ public class App implements CommandLineRunner{
 		 * 리스트의 각 데이터마다 forEach() 메서드에 인자로 전달한 람다 표현식을 적용
 		 *  System.out::println은 메서드레퍼런스(method reference)라고함 (x)->{System.out.println(x);} 의 줄임형태
 		 */
-		customerRepository.findAll().forEach(System.out::println);
+		//customerRepository.findAll().forEach(System.out::println);
+		//customerRepository.findAllOrderByName().forEach(System.out::println);
+		//System.out.println("=======>"+customerRepository.findId1());
 		
+		//페이징 처리
+		Pageable pageable = new PageRequest(0, 3);
+		Page<Customer> page = customerRepository.findAll(pageable);
+		System.out.println("한페이지당 데이터 수  >>>> "+page.getSize());
+		System.out.println("현제 페이지 >>>> "+page.getNumber());
+		System.out.println("전체 페이지 수 >>>> "+page.getTotalPages());
+		System.out.println("전체 데이터 수 >>>> "+page.getTotalElements());
+		page.getContent().forEach(System.out::println);
 	}
 		
 /*		String sql ="SELECT id, first_name, last_name FROM customers WHERE id = :id";
