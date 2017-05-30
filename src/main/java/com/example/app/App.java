@@ -41,6 +41,9 @@ public class App implements CommandLineRunner{
 		System.out.println("전체 페이지 수 >>>> "+page.getTotalPages());
 		System.out.println("전체 데이터 수 >>>> "+page.getTotalElements());
 		page.getContent().forEach(System.out::println);
+		
+		
+		
 	}
 		
 /*		String sql ="SELECT id, first_name, last_name FROM customers WHERE id = :id";
