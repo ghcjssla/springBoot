@@ -9,8 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-import com.example.app.domain.Customer;
-import com.example.app.repository.CustomerRepository;
+import com.example.domain.Customer;
+import com.example.repository.CustomerRepository;
 
 @EnableAutoConfiguration
 //스캔범위가 있다. 자기와같거나 하위만 검색하는걸로 보임
