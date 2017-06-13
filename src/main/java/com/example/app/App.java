@@ -16,13 +16,13 @@ import com.example.repository.CustomerRepository;
 //스캔범위가 있다. 자기와같거나 하위만 검색하는걸로 보임
 @ComponentScan
 public class App implements CommandLineRunner{
-	@Autowired
-	CustomerRepository customerRepository;
+	//@Autowired
+	//CustomerRepository customerRepository;
 	
 	@Override
 	public void run(String... strings) throws Exception {
-		Customer created = customerRepository.save(new Customer(null,"김","호성"));
-		System.out.println(created + " 생성됨!");
+		/*Customer created = customerRepository.save(new Customer(null,"김","호성"));
+		System.out.println(created + " 생성됨!");*/
 		
 		/**
 		 * 자바 8부터 java.lang.Iterable 인터페이스에 추가된 forEach()
@@ -34,14 +34,14 @@ public class App implements CommandLineRunner{
 		//System.out.println("=======>"+customerRepository.findId1());
 		
 		//페이징 처리
-		Pageable pageable = new PageRequest(0, 3);
+		/*Pageable pageable = new PageRequest(0, 3);
 		Page<Customer> page = customerRepository.findAll(pageable);
 		System.out.println("한페이지당 데이터 수  >>>> "+page.getSize());
 		System.out.println("현제 페이지 >>>> "+page.getNumber());
 		System.out.println("전체 페이지 수 >>>> "+page.getTotalPages());
 		System.out.println("전체 데이터 수 >>>> "+page.getTotalElements());
 		page.getContent().forEach(System.out::println);
-		
+		*/
 		
 		
 	}
