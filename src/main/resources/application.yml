@@ -1,2 +1,3 @@
+spring.jpa.hibernate.ddl-auto: create-drop
 banner:
   location: banner.txt
