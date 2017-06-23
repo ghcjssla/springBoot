@@ -7,16 +7,17 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-//모든 필드를 인자로 받는 생성자를 만든다.
+@NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "CUSTOMERS")
+@Table(name = "customers")
 public class Customer {
-	@Id
+    @Id
     @GeneratedValue
-	private Integer id;
-	private String firstName;
-	private String lastName;
+    private Integer id;
+    private String firstName;
+    private String lastName;
 }
