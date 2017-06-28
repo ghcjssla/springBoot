@@ -2,15 +2,30 @@ package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
-
+/**
+ * SpringBootServletInitializer를 상속받으셔야 톰캣 기동 시 정상적으로 스프링 모듈이 동작합니다.
+	그리고 configure를 오버라이드 해주셔야 서블릿 컨테이너 기동 시 스프링 설정을 적용시켜줍니다.
+	출처: http://www.donnert.net/86 [donnert.net]
+ * @author hogi_ghcjssla
+ *
+ */
 @EnableAutoConfiguration
 @ComponentScan
-public class App {
+public class App extends SpringBootServletInitializer {
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		System.out.println("1-3");
+		return builder.sources(App.class);
+	}
 
     public static void main(String[] args) {
+    	System.out.println("1-1");
         SpringApplication.run(App.class, args);
+        System.out.println("1-2");
     }
 }
 
